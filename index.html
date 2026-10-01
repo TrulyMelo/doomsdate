@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doomsday Date? 💚</title>
+<link href="https://zaf01.safelinks.protection.outlook.com/?url=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DBangers%26family%3DPoppins%3Awght%40400%3B700%26display%3Dswap&data=05%7C02%7C44ha2507628%40myboston.co.za%7C73d90f34fb434fd05ed208df1fc40a6c%7C2aada6576d1e4320b92edd700921dda5%7C0%7C0%7C639264599472611448%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=n2bDF%2B%2BWmwL9p1%2FLdpC41JTzUnRYxkmghzthqADAsbc%3D&reserved=0" rel="stylesheet">
+<style>
+body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#2e5939 0%,#0f1f13 70%);display:flex;justify-content:center;align-items:center;font-family:'Poppins',sans-serif;color:white;overflow:hidden}
+.container{background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);border:2px solid #4caf50;border-radius:24px;padding:30px 22px;max-width:420px;width:90%;text-align:center;box-shadow:0 0 30px rgba(76,175,80,.5)}
+h1{font-family:'Bangers',cursive;font-size:2.6em;letter-spacing:2px;color:#8aff8a;margin:10px 0;text-shadow:0 0 10px #4caf50;line-height:1}
+.subtitle{color:#c8e6c9;font-size:.95em}
+.doom{font-family:'Bangers';color:#a5d6a7;font-size:1.4em;margin:8px 0}
+.photos{display:flex;gap:10px;justify-content:center;margin:18px 0}
+.photos img{width:85px;height:85px;object-fit:cover;border-radius:16px;border:2px solid #4caf50}
+.buttons{position:relative;width:100%;height:170px;margin-top:15px}
+button{padding:14px 32px;font-size:18px;border:none;border-radius:50px;cursor:pointer;font-weight:700;position:absolute;transition:.2s;font-family:'Poppins'}
+#yesBtn{background:linear-gradient(135deg,#4caf50,#2e7d32);color:white;left:18%;box-shadow:0 0 20px rgba(76,175,80,.8);animation:pulse 1.5s infinite}
+#noBtn{background:white;color:#2e7d32;right:18%;z-index:99}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+#step2,#success{display:none}
+input{width:90%;padding:12px;margin:8px 0;border-radius:12px;border:2px solid #4caf50;background:#1b2e1f;color:white;font-size:16px;font-family:'Poppins'}
+label{display:block;text-align:left;margin-left:5%;color:#a5d6a7;font-weight:bold;font-size:.9em;margin-top:12px}
+.confirmBtn{position:static;width:90%;background:linear-gradient(135deg,#4caf50,#2e7d32);color:white;margin-top:20px;box-shadow:0 0 15px rgba(76,175,80,.6)}
+</style>
+</head>
+<body>
+
+<!-- STEP 1: THE QUESTION -->
+<div class="container" id="step1">
+<div style="font-size:42px">💚👑</div>
+<div class="doom">DOOM DEMANDS AN ANSWER</div>
+<h1>WILL YOU WATCH DOOMSDAY WITH ME?</h1>
+<p class="subtitle">Avengers: Doomsday - In cinemas Dec 18, 2026.<br>Even Victor Von Doom can't doom this date.</p>
+
+<!-- EDIT HERE 2: YOUR PHOTOS - Replace links with your Imgur links -->
+<div class="photos">
+<img src="https://upload.wikimedia.org/wikipedia/en/e/ee/Avengers_Doomsday_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled
+<button id="yesBtn" onclick="goStep2()">YES! 💚</button>
+<button id="noBtn" onmouseover="moveNo()" ontouchstart="moveNo()" onclick="moveNo()">No</button>
+</div>
+</div>
+
+<!-- STEP 2: CALENDAR -->
+<div class="container" id="step2">
+<h1 style="font-size:2.2em">YOU CHOSE WISELY!</h1>
+<p class="subtitle">Even Doom approves. Pick our multiverse date 😍</p>
+<label>📅 Choose Date (After Dec 18, 2026)</label>
+<input type="date" id="dateInput" min="2026-12-18" value="2026-12-19">
+<label>⏰ Choose Time</label>
+<input type="time" id="timeInput" value="19:00">
+<button class="confirmBtn" onclick="confirmDate()">Confirm Our Doomsday Date 🚀</button>
+</div>
+
+<!-- STEP 3: SUCCESS -->
+<div class="container" id="success">
+<div style="font-size:50px">💚💥</div>
+<h1>IT'S OFFICIAL!</h1>
+<p class="subtitle" id="finalText"></p>
+<p style="font-family:'Bangers';font-size:1.6em;color:#8aff8a">DOOM HAS SPOKEN. IT'S A DATE.</p>
+</div>
+
+<script>
+// ================= EDIT HERE 1: YOUR WHATSAPP NUMBER =================
+// Put your number with country code, NO + and NO spaces
+// Example South Africa: 27821234567
+const YOUR_WHATSAPP_NUMBER = "27658485096";
+
+function moveNo(){
+const btn=document.getElementById('noBtn');
+const x=Math.random()*(window.innerWidth-90);
+const y=Math.random()*(window.innerHeight-70);
+btn.style.left=x+'px';btn.style.top=y+'px';btn.style.position='fixed';
+}
+function goStep2(){
+document.getElementById('step1').style.display='none';
+document.getElementById('step2').style.display='block';
+}
+function confirmDate(){
+const date=document.getElementById('dateInput').value;
+const time=document.getElementById('timeInput').
